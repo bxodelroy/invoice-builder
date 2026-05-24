@@ -1,0 +1,109 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container{
+    width: 90%;
+    margin: auto;
+    background-color: #fff6ce50;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 1rem;
+}
+
+h1{
+    text-align: center;
+    color: black;
+}
+
+.client-info,
+.invoice-details,
+.totals{
+    margin-top: 20px;
+}
+
+.client-info,
+.invoice-details{
+    flex: 1;
+}
+
+.client-info input,
+.invoice-details input{
+    display: block;
+    margin-top: 10px;
+    padding: 10px;
+    width: 300px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+table input{
+    width: 90%;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+table{
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+th,
+td{
+    padding: 10px;
+    text-align: center;
+    overflow: hidden;
+}
+
+input{
+    width: 300px;
+    box-sizing: border-box;
+}
+
+.top-section{
+    display: flex;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.totals{
+    margin-top: 20px;
+    text-align: right;
+    color: black;
+}
+
+button{
+    padding: 8px 9px;
+    border: none;
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 101px;
+    border-radius: 20px;
+    transition: all 0.4s;
+}
+
+button:hover{
+    background-color: black;
+    transform: scale(1.05);
+}
+
+.base-buttons{
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  justify-content: center;
+  align-items: center;
+}
+
+@media print{
+    button{
+        display: none;
+    }
+}
