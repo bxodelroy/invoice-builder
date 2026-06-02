@@ -89,7 +89,6 @@ const App = () => {
       },
       html2canvas: {
         scale: 2
-
       },
       jsPDF: {
         unit: 'in',
