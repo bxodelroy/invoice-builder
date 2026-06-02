@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'
 import './App.css'
 import html2pdf from 'html2pdf.js'
+import wayne from "./assets/wayne.jpg";
 
 const App = () => {
 
@@ -88,7 +89,7 @@ const App = () => {
       },
       html2canvas: {
         scale: 2
-        
+
       },
       jsPDF: {
         unit: 'in',
@@ -101,8 +102,25 @@ const App = () => {
 
   return (
     <div className="container" ref={invoiceRef}>
+      <h2>Tax Invoice</h2>
 
-      <h1>Invoice Builder</h1>
+      <div className="company-section">
+
+        <div className="logo">
+          <img src={wayne} alt="logo"></img>
+        </div>
+
+        <div className="address">
+          <p>
+            Q-city, 2nd Floor-Block A & Block B Survey Number-109,110,111/2,<br />
+            Nanakramguda Village Serlingampally Mandal, Ranga Reddy Dist.<br />
+            Hyderabad, TELANGANA, 500032
+          </p>
+          <p><b>Mobile: </b>9836798094</p>
+          <p><b>Email: </b>wayne@gmail.com</p>
+        </div>
+
+      </div>
 
       <div className="top-section">
 
@@ -226,6 +244,48 @@ const App = () => {
         <p>Subtotal: ₹{subtotal}</p>
         <p>Tax: ₹{tax.toFixed(2)}</p>
         <p>Total: ₹{total.toFixed(2)}</p>
+      </div>
+
+      <div className="line"></div>
+
+      <div className="amount">
+        <p><b>Amount Payable: ₹{total.toFixed(2)}</b></p>
+      </div>
+
+      <div className="bank-details">
+        <h3>Bank Details:</h3>
+
+        <div className="row">
+          <span className="label">Bank:</span>
+          <span className="value">YES BANK</span>
+        </div>
+
+        <div className="row">
+          <span className="label">Account #:</span>
+          <span className="value">66789999222445</span>
+        </div>
+
+        <div className="row">
+          <span className="label">IFSC:</span>
+          <span className="value">YESBIN4567</span>
+        </div>
+
+        <div className="row">
+          <span className="label">Branch:</span>
+          <span className="value">Kodihalli</span>
+        </div>
+      </div>
+
+      <div className="terms">
+        <p><b>Notes: </b></p>
+        <p>Thank you for business</p>
+        <p><b>Terms and Conditions</b></p>
+        <p>1. Goods once sold cannot be taken back or exchanged.</p>
+          <p>2. We are not the manufacturers, company will stand for warranty as per their terms and conditions.</p>
+          <p>3.Interest @24% p.a. will be charged for uncleared bills beyond 15 days.</p>
+          <p>4.Subject to local Jurisdiction.</p>
+
+          <div className="sign"><p>Authorized Signature</p></div>
       </div>
 
     </div>
