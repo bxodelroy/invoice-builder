@@ -80,19 +80,18 @@ const App = () => {
     }
     const element = invoiceRef.current
     const options = {
-      //margin: 1,
-      margin: 0.3,
+      margin: 0.2,
       filename: 'invoice.pdf',
       image: {
         type: 'jpeg',
-        quality: 1
+        quality: 2
       },
       html2canvas: {
-        scale: 2
+        scale: 1
       },
       jsPDF: {
-        unit: 'in',
-        format: 'letter',
+        unit: 'mm',
+        format: 'a4',
         orientation: 'portrait'
       }
     }
@@ -112,7 +111,6 @@ const App = () => {
         <div className="address">
           <p>
             Q-city, 2nd Floor-Block A & Block B Survey Number-109,110,111/2,<br />
-            Nanakramguda Village Serlingampally Mandal, Ranga Reddy Dist.<br />
             Hyderabad, TELANGANA, 500032
           </p>
           <p><b>Mobile: </b>9836798094</p>
@@ -282,7 +280,6 @@ const App = () => {
         <p>1. Goods once sold cannot be taken back or exchanged.</p>
           <p>2. We are not the manufacturers, company will stand for warranty as per their terms and conditions.</p>
           <p>3.Interest @24% p.a. will be charged for uncleared bills beyond 15 days.</p>
-          <p>4.Subject to local Jurisdiction.</p>
 
           <div className="sign"><p>Authorized Signature</p></div>
       </div>
