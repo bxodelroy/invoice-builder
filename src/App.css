@@ -73,7 +73,7 @@ table input {
 
 table {
     width: 100%;
-    margin-top: 20px;
+    margin-top: 6rem;
     border-collapse: collapse;
     table-layout: fixed;
 }
@@ -117,8 +117,8 @@ button:hover {
     display: flex;
     position: absolute;
     gap: 7px;
-    
-    left: 40%;
+    left: 43%;
+    bottom: 40%;
 }
 
 .line {
@@ -173,8 +173,6 @@ button:hover {
     font-size: 15px;
 }
 
-@media print {
-    button {
-        display: none;
-    }
+.pdf-hide {
+  display: none;
 }
