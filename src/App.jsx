@@ -7,6 +7,7 @@ const App = () => {
 
   const invoiceRef = useRef()
 
+  const [isDownloading, setIsDownloading] = useState(false)
   const [clientName, setClientName] = useState("")
   const [clientAddress, setClientAddress] = useState("")
 
@@ -78,6 +79,7 @@ const App = () => {
         return
       }
     }
+    setIsDownloading(true)
     const element = invoiceRef.current
     const options = {
       margin: 0.2,
@@ -95,7 +97,6 @@ const App = () => {
         orientation: 'portrait'
       }
     }
-    html2pdf().set(options).from(element).save()
     document.querySelectorAll(".action-column").forEach(el => {
       el.classList.add("pdf-hide");
     });
@@ -104,6 +105,8 @@ const App = () => {
       document.querySelectorAll(".action-column").forEach(el => {
         el.classList.remove("pdf-hide");
       });
+
+      setIsDownloading(false);
     });
   }
 
@@ -133,36 +136,55 @@ const App = () => {
 
           <div className="client-info">
             <h3>Client Information</h3>
-            <input
-              type="text"
-              placeholder="Client Name"
-              value={clientName}
-              onChange={(e) => setClientName(e.target.value)}
-            />
 
-            <input
-              type="text"
-              placeholder="Client Address"
-              value={clientAddress}
-              onChange={(e) => setClientAddress(e.target.value)}
-            />
+            {isDownloading ? (
+              <>
+                <p className="pdf-text">{clientName}</p>
+                <p className="pdf-text">{clientAddress}</p>
+              </>
+            ) : (
+              <>
+                <input
+                  type="text"
+                  placeholder="Client Name"
+                  value={clientName}
+                  onChange={(e) => setClientName(e.target.value)}
+                />
+
+                <input
+                  type="text"
+                  placeholder="Client Address"
+                  value={clientAddress}
+                  onChange={(e) => setClientAddress(e.target.value)}
+                />
+              </>
+            )}
           </div>
-
 
           <div className="invoice-details">
             <h3>Invoice Details</h3>
-            <input
-              type="text"
-              placeholder="Invoice Number"
-              value={invoiceNumber}
-              onChange={(e) => setInvoiceNumber(e.target.value)}
-            />
 
-            <input
-              type="date"
-              value={invoiceDate}
-              onChange={(e) => setInvoiceDate(e.target.value)}
-            />
+            {isDownloading ? (
+              <>
+                <p className="pdf-text">Invoice No: {invoiceNumber}</p>
+                <p className="pdf-text">Date: {invoiceDate}</p>
+              </>
+            ) : (
+              <>
+                <input
+                  type="text"
+                  placeholder="Invoice Number"
+                  value={invoiceNumber}
+                  onChange={(e) => setInvoiceNumber(e.target.value)}
+                />
+
+                <input
+                  type="date"
+                  value={invoiceDate}
+                  onChange={(e) => setInvoiceDate(e.target.value)}
+                />
+              </>
+            )}
           </div>
 
         </div>
