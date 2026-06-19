@@ -139,8 +139,8 @@ const App = () => {
 
             {isDownloading ? (
               <>
-                <p className="pdf-text">{clientName}</p>
-                <p className="pdf-text">{clientAddress}</p>
+                <p className="pdf-text">Name: {clientName}</p>
+                <p className="pdf-text">Address: {clientAddress}</p>
               </>
             ) : (
               <>
@@ -163,20 +163,27 @@ const App = () => {
 
           <div className="invoice-details">
             <h3>Invoice Details</h3>
-
             {isDownloading ? (
               <>
                 <p className="pdf-text">Invoice No: {invoiceNumber}</p>
-                <p className="pdf-text">Date: {invoiceDate}</p>
+                <p className="pdf-text">Date: {invoiceDate}
+                </p>
               </>
             ) : (
               <>
-                <input
-                  type="text"
-                  placeholder="Invoice Number"
-                  value={invoiceNumber}
-                  onChange={(e) => setInvoiceNumber(e.target.value)}
-                />
+                <div className="date-wrapper">
+                  <input
+                    type="text"
+                    placeholder="Invoice Number"
+                    value={invoiceNumber}
+                    onChange={(e) => setInvoiceNumber(e.target.value)}
+                  />
+                  <i
+                    className="fa-solid fa-calendar-days"
+                    style={{ color: "black" }}
+                  ></i>
+
+                </div>
 
                 <input
                   type="date"
