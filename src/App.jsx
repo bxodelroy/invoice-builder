@@ -216,33 +216,45 @@ const App = () => {
               <tr key={index}>
 
                 <td>
-                  <input
-                    type="text"
-                    value={item.description}
-                    onChange={(e) =>
-                      handleItemChange(index, "description", e.target.value)
-                    }
-                  />
+                  {isDownloading ? (
+                    <span className="pdf-text">{item.description}</span>
+                  ) : (
+                    <input
+                      type="text"
+                      value={item.description}
+                      onChange={(e) =>
+                        handleItemChange(index, "description", e.target.value)
+                      }
+                    />
+                  )}
                 </td>
 
                 <td>
-                  <input
-                    type="number"
-                    value={item.quantity}
-                    onChange={(e) =>
-                      handleItemChange(index, "quantity", Number(e.target.value))
-                    }
-                  />
+                  {isDownloading ? (
+                    <span className="pdf-text">{item.quantity}</span>
+                  ) : (
+                    <input
+                      type="number"
+                      value={item.quantity}
+                      onChange={(e) =>
+                        handleItemChange(index, "quantity", Number(e.target.value))
+                      }
+                    />
+                  )}
                 </td>
 
                 <td>
-                  <input
-                    type="number"
-                    value={item.rate}
-                    onChange={(e) =>
-                      handleItemChange(index, "rate", Number(e.target.value))
-                    }
-                  />
+                  {isDownloading ? (
+                    <span className="pdf-text">{item.rate}</span>
+                  ) : (
+                    <input
+                      type="number"
+                      value={item.rate}
+                      onChange={(e) =>
+                        handleItemChange(index, "rate", Number(e.target.value))
+                      }
+                    />
+                  )}
                 </td>
 
                 <td>
@@ -250,9 +262,7 @@ const App = () => {
                 </td>
 
                 <td className="action-column">
-                  <button
-                    onClick={() => deleteItem(index)}
-                  >
+                  <button onClick={() => deleteItem(index)}>
                     Delete
                   </button>
                 </td>
