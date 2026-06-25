@@ -57,6 +57,15 @@ const App = () => {
   const total = subtotal + tax
 
   const downloadPDF = () => {
+    //console.log(items);
+    const hasNegativeValue = items.some(
+      (item) => item.quantity < 0 || item.rate < 0
+    );
+
+    if (hasNegativeValue) {
+      alert("Negative values are not allowed. Please correct them before downloading.");
+      return;
+    }
     const hasEmptyItem = items.some((item) =>
       item.description === "" ||
       item.quantity === 0 ||
