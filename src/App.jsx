@@ -23,9 +23,14 @@ const App = () => {
   ])
 
   const handleItemChange = (index, field, value) => {
-    const updatedItems = [...items]
-    updatedItems[index][field] = value
-    setItems(updatedItems)
+    if ((field === "quantity" || field === "rate") && value < 0) {
+      alert("Negative values are not allowed.");
+      return;
+    }
+
+    const updatedItems = [...items];
+    updatedItems[index][field] = value;
+    setItems(updatedItems);
   }
 
   const addItem = () => {
@@ -244,6 +249,7 @@ const App = () => {
                   ) : (
                     <input
                       type="number"
+                      min={0}
                       value={item.quantity}
                       onChange={(e) =>
                         handleItemChange(index, "quantity", Number(e.target.value))
@@ -258,6 +264,7 @@ const App = () => {
                   ) : (
                     <input
                       type="number"
+                      min={0}
                       value={item.rate}
                       onChange={(e) =>
                         handleItemChange(index, "rate", Number(e.target.value))
